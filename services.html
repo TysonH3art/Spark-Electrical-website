@@ -8,44 +8,49 @@
 </head>
 <body>
 
-    <header>
-        <!-- Site-wide header: logo + navigation menu -->
-        <a href="index.html"><img src="images/logo.png" alt="Sparky Electrical Services logo" style="width:200px; height:60px;"></a>
-        <nav>
+    <header class="site-header">
+        <a href="index.html" class="logo-link">
+            <img src="images/logo.png" alt="Sparky Electrical Services logo" class="logo">
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">&#9776;</button>
+        <nav class="main-nav" id="mainNav">
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
-            <a href="services.html">Services</a>
+            <a href="services.html" class="active">Services</a>
             <a href="enquiry.html">Enquiry</a>
             <a href="contact.html">Contact</a>
         </nav>
     </header>
 
-    <main>
+    <main class="page-content">
         <h1>Our Services</h1>
 
-        <section>
-            <h2>Electrical Installations</h2>
-            <img src="images/service-installation.jpg" alt="Electrician installing wiring in a home" width="500">
-            <p>From new plug points and lighting circuits to full house rewires, we handle installations for both new builds and renovations, all completed to SANS 10142 wiring standards.</p>
-        </section>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="images/service-installation.jpg" alt="Electrician installing wiring in a home" class="content-img">
+                <h2>Electrical Installations</h2>
+                <p>From new plug points and lighting circuits to full house rewires, we handle installations for both new builds and renovations, all completed to SANS 10142 wiring standards.</p>
+            </div>
 
-        <section>
-            <h2>Repairs and Fault Finding</h2>
-            <img src="images/service-repair.jpg" alt="Electrician diagnosing an electrical fault" width="500">
-            <p>Tripping breakers, faulty plug points, or flickering lights? We diagnose and fix electrical faults quickly and safely, with same-day call-outs available for urgent issues.</p>
-        </section>
+            <div class="service-card">
+                <img src="images/service-repair.jpg" alt="Electrician diagnosing an electrical fault" class="content-img">
+                <h2>Repairs and Fault Finding</h2>
+                <p>Tripping breakers, faulty plug points, or flickering lights? We diagnose and fix electrical faults quickly and safely, with same-day call-outs available for urgent issues.</p>
+            </div>
 
-        <section>
-            <h2>Certificate of Compliance (COC) Inspections</h2>
-            <img src="images/service-coc.jpg" alt="Electrician conducting a compliance inspection" width="500">
-            <p>Selling your property or renewing insurance? We conduct full electrical compliance inspections and issue a valid Certificate of Compliance in line with South African regulations.</p>
-        </section>
+            <div class="service-card">
+                <img src="images/service-coc.jpg" alt="Electrician conducting a compliance inspection" class="content-img">
+                <h2>Certificate of Compliance (COC) Inspections</h2>
+                <p>Selling your property or renewing insurance? We conduct full electrical compliance inspections and issue a valid Certificate of Compliance in line with South African regulations.</p>
+            </div>
+        </div>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <p>&copy; 2026 Sparky Electrical Services. All rights reserved.</p>
         <p>Student: Lesego Tlhako | Student Number: ST10511722</p>
     </footer>
 
+    <script src="js/script.js"></script>
 </body>
 </html>

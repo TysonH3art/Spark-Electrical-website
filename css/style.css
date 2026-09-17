@@ -1,4 +1,389 @@
-/* 
-  Styling is added in Part 2 of the POE, not Part 1.
-  This file is linked from every page so it's ready to use later.
-*/
+/* ============================================
+   SPARKY ELECTRICAL SERVICES - STYLESHEET
+   Part 2: CSS Styling and Responsive Design
+   ============================================ */
+
+/* ---- 1. CSS RESET ---- */
+/* Removes inconsistent default spacing/sizing across browsers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+/* ---- 2. BASE / TYPOGRAPHY STYLES ---- */
+:root {
+    /* Colour scheme, taken from the approved Website Project Proposal */
+    --navy: #0A2647;
+    --amber: #F5A623;
+    --light-grey: #F4F5F7;
+    --text-dark: #1B1F27;
+    --text-light: #FFFFFF;
+    --border-colour: #E0E2E7;
+}
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--light-grey);
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', 'Open Sans', Arial, sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--navy);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* ---- 3. BUTTONS ---- */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-primary {
+    background-color: var(--amber);
+    color: var(--navy);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #e0951c;
+    transform: translateY(-2px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* ---- 4. SITE HEADER + NAVIGATION ---- */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 5%;
+    background-color: var(--text-light);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    width: 180px;
+    height: auto;
+}
+
+.main-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.main-nav a {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--navy);
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+    color: var(--amber);
+    border-bottom-color: var(--amber);
+}
+
+.main-nav a.active {
+    border-bottom-color: var(--navy);
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    color: var(--navy);
+    cursor: pointer;
+}
+
+/* ---- 5. HERO SECTION (Homepage) ---- */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(10, 38, 71, 0.15);
+}
+
+/* ---- 6. HIGHLIGHTS GRID (Homepage) ---- */
+.highlights {
+    background-color: var(--text-light);
+    padding: 3rem 5%;
+    text-align: center;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto 0;
+}
+
+.highlight-card {
+    background-color: var(--light-grey);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: left;
+    border-top: 4px solid var(--amber);
+}
+
+/* ---- 7. GENERAL PAGE CONTENT (About / Services / Enquiry / Contact) ---- */
+.page-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 5%;
+}
+
+.page-content.narrow {
+    max-width: 700px;
+}
+
+.content-section {
+    margin-bottom: 2.5rem;
+}
+
+.content-section.narrow {
+    max-width: 700px;
+}
+
+.content-img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.mission-vision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+/* ---- 8. SERVICES GRID ---- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.service-card {
+    background-color: var(--text-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ---- 9. CONTACT LOCATIONS GRID ---- */
+.locations-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.location-card {
+    background-color: var(--text-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--navy);
+}
+
+/* ---- 10. FORMS (Enquiry / Contact) ---- */
+.site-form {
+    background-color: var(--text-light);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.65rem;
+    border: 1px solid var(--border-colour);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--amber);
+    box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.2);
+}
+
+/* ---- 11. FOOTER ---- */
+.site-footer {
+    background-color: var(--navy);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1.5rem 5%;
+    font-size: 0.85rem;
+}
+
+.site-footer p {
+    margin-bottom: 0.25rem;
+}
+
+/* ============================================
+   12. RESPONSIVE DESIGN - BREAKPOINTS
+   Desktop: default styles above (1024px+)
+   Tablet: max-width 1024px
+   Mobile: max-width 600px
+   ============================================ */
+
+/* ---- TABLET ---- */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .highlights-grid,
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mission-vision,
+    .locations-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 2.1rem;
+    }
+}
+
+/* ---- MOBILE ---- */
+@media (max-width: 600px) {
+    .site-header {
+        flex-wrap: wrap;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        margin-top: 1rem;
+    }
+
+    .main-nav.open {
+        display: flex;
+    }
+
+    .main-nav a {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border-colour);
+    }
+
+    .highlights-grid,
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .hero,
+    .page-content {
+        padding: 2rem 5%;
+    }
+}

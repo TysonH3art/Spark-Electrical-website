@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sparky Electrical Services | Home</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- CSS styling is added in Part 2 - this file only needs correct HTML structure for Part 1 -->
 </head>
 <body>
 
-    <header>
+    <header class="site-header">
         <!-- Site-wide header: logo + navigation menu -->
-        <a href="index.html"><img src="images/logo.png" alt="Sparky Electrical Services logo" style="width:200px; height:60px;"></a>
-        <nav>
-            <a href="index.html">Home</a>
+        <a href="index.html" class="logo-link">
+            <img src="images/logo.png" alt="Sparky Electrical Services logo" class="logo">
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">&#9776;</button>
+        <nav class="main-nav" id="mainNav">
+            <a href="index.html" class="active">Home</a>
             <a href="about.html">About Us</a>
             <a href="services.html">Services</a>
             <a href="enquiry.html">Enquiry</a>
@@ -23,27 +25,47 @@
 
     <main>
         <!-- Hero section: main banner introducing the organisation -->
-        <section>
-            <h1>Sparky Electrical Services - Safe, Reliable Electrical Work You Can Trust</h1>
-            <img src="images/hero-electrician.jpg" alt="Qualified electrician at work on a residential electrical installation" width="500">
-            <p>Sparky Electrical Services has been keeping homes and small businesses across Johannesburg safely powered since 2015. From urgent repairs to full installations and Certificate of Compliance inspections, our qualified team gets the job done properly the first time.</p>
-            <a href="enquiry.html">Get a Free Quote</a>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Safe, Reliable Electrical Work You Can Trust</h1>
+                <p>Sparky Electrical Services has been keeping homes and small businesses across Johannesburg safely powered since 2015. From urgent repairs to full installations and Certificate of Compliance inspections, our qualified team gets the job done properly the first time.</p>
+                <a href="enquiry.html" class="btn btn-primary">Get a Free Quote</a>
+            </div>
+            <div class="hero-image">
+                <!-- Responsive image: browser picks the best-fit file for the screen size -->
+                <img src="images/hero-electrician.jpg"
+                     srcset="images/hero-electrician-small.jpg 600w, images/hero-electrician.jpg 1200w"
+                     sizes="(max-width: 768px) 100vw, 50vw"
+                     alt="Qualified electrician at work on a residential electrical installation">
+            </div>
         </section>
 
         <!-- Short overview section: 2-3 key highlights or services -->
-        <section>
+        <section class="highlights">
             <h2>Why Choose Us</h2>
-            <p>Fully qualified and registered electricians with over a decade of combined experience across residential and small commercial projects.</p>
-            <p>Fast response times, including same-day call-outs for urgent electrical faults within our service area.</p>
-            <p>Transparent, upfront pricing with no hidden call-out fees on standard quotes.</p>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <h3>Qualified &amp; Experienced</h3>
+                    <p>Fully qualified and registered electricians with over a decade of combined experience across residential and small commercial projects.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>Fast Response</h3>
+                    <p>Fast response times, including same-day call-outs for urgent electrical faults within our service area.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>Transparent Pricing</h3>
+                    <p>Transparent, upfront pricing with no hidden call-out fees on standard quotes.</p>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <!-- Site-wide footer: repeats on every page -->
         <p>&copy; 2026 Sparky Electrical Services. All rights reserved.</p>
         <p>Student: Lesego Tlhako | Student Number: ST10511722</p>
     </footer>
 
+    <script src="js/script.js"></script>
 </body>
 </html>
