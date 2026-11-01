@@ -3,10 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparky Electrical Services | Services</title>
+    <title>Electrical Services and Prices | Sparky Electrical Johannesburg</title>
+    <meta name="description" content="Electrical installations, fault finding, COC inspections, LED lighting, inverter wiring and DB board upgrades in Johannesburg. Browse prices and get a quote.">
+    <meta name="keywords" content="electrical installation, fault finding, COC inspection, LED lighting upgrade, inverter wiring, DB board upgrade, electrician prices Johannesburg">
+    <meta name="author" content="Lesego Tlhako">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0A2647">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <link rel="canonical" href="https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/services.html">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sparky Electrical Services">
+    <meta property="og:title" content="Electrical Services and Prices | Sparky Electrical Johannesburg">
+    <meta property="og:description" content="Electrical installations, fault finding, COC inspections, LED lighting, inverter wiring and DB board upgrades in Johannesburg. Browse prices and get a quote.">
+    <meta property="og:url" content="https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/services.html">
+    <meta property="og:image" content="https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/images/hero-electrician.jpg">
+    <meta property="og:locale" content="en_ZA">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <header class="site-header">
         <a href="index.html" class="logo-link">
@@ -22,35 +39,55 @@
         </nav>
     </header>
 
-    <main class="page-content">
-        <h1>Our Services</h1>
+    <main id="main-content" class="page-content">
+        <h1>Our Electrical Services</h1>
+        <p class="intro">From a single faulty plug point to a full rewire, our qualified electricians cover homes and small businesses across Johannesburg. Search or sort the list below, then <a class="text-link" href="enquiry.html">request a free quote</a>.</p>
 
-        <div class="services-grid">
-            <div class="service-card">
-                <img src="images/service-installation.jpg" alt="Electrician installing wiring in a home" class="content-img">
-                <h2>Electrical Installations</h2>
-                <p>From new plug points and lighting circuits to full house rewires, we handle installations for both new builds and renovations, all completed to SANS 10142 wiring standards.</p>
+        <!-- Search, filter and sort controls: handled by js/script.js -->
+        <div class="toolbar" role="search">
+            <div class="form-group">
+                <label for="serviceSearch">Search services</label>
+                <input type="search" id="serviceSearch" placeholder="e.g. LED, inverter, COC" maxlength="50" autocomplete="off">
             </div>
-
-            <div class="service-card">
-                <img src="images/service-repair.jpg" alt="Electrician diagnosing an electrical fault" class="content-img">
-                <h2>Repairs and Fault Finding</h2>
-                <p>Tripping breakers, faulty plug points, or flickering lights? We diagnose and fix electrical faults quickly and safely, with same-day call-outs available for urgent issues.</p>
+            <div class="form-group">
+                <label for="serviceCategory">Type of work</label>
+                <select id="serviceCategory">
+                    <option value="all">All services</option>
+                    <option value="installation">Installations and upgrades</option>
+                    <option value="repair">Repairs and safety</option>
+                    <option value="coc">Compliance (COC)</option>
+                </select>
             </div>
-
-            <div class="service-card">
-                <img src="images/service-coc.jpg" alt="Electrician conducting a compliance inspection" class="content-img">
-                <h2>Certificate of Compliance (COC) Inspections</h2>
-                <p>Selling your property or renewing insurance? We conduct full electrical compliance inspections and issue a valid Certificate of Compliance in line with South African regulations.</p>
+            <div class="form-group">
+                <label for="serviceSort">Sort by</label>
+                <select id="serviceSort">
+                    <option value="default">Featured</option>
+                    <option value="price-low">Price: low to high</option>
+                    <option value="price-high">Price: high to low</option>
+                    <option value="name">Name: A to Z</option>
+                </select>
             </div>
+            <button type="button" id="serviceReset" class="btn btn-secondary">Reset</button>
         </div>
+
+        <p id="serviceCount" class="service-count" aria-live="polite"></p>
+
+        <!-- The cards are built from js/data.js -->
+        <div class="services-grid" id="servicesGrid"></div>
+        <p id="serviceEmpty" class="empty-message" hidden>No services match your search. Try a different word or press Reset.</p>
+
+        <noscript>
+            <p>Our services: electrical installations, repairs and fault finding, Certificate of Compliance (COC) inspections, LED lighting upgrades, backup power and inverter wiring, and distribution board upgrades with surge protection. Please <a href="enquiry.html">send us an enquiry</a> for prices.</p>
+        </noscript>
     </main>
 
     <footer class="site-footer">
         <p>&copy; 2026 Sparky Electrical Services. All rights reserved.</p>
+        <p class="share-links" id="shareLinks"></p>
         <p>Student: Lesego Tlhako | Student Number: ST10511722</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>

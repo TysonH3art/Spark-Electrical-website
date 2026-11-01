@@ -3,10 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparky Electrical Services | Home</title>
+    <title>Electricians in Johannesburg | Sparky Electrical Services</title>
+    <meta name="description" content="Qualified electricians in Johannesburg for installations, repairs and Certificate of Compliance (COC) inspections. Same-day call-outs and free quotes.">
+    <meta name="keywords" content="electrician Johannesburg, electrical repairs, COC certificate, electrical installation, same-day electrician, Sparky Electrical Services">
+    <meta name="author" content="Lesego Tlhako">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0A2647">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <link rel="canonical" href="https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sparky Electrical Services">
+    <meta property="og:title" content="Electricians in Johannesburg | Sparky Electrical Services">
+    <meta property="og:description" content="Qualified electricians in Johannesburg for installations, repairs and Certificate of Compliance (COC) inspections. Same-day call-outs and free quotes.">
+    <meta property="og:url" content="https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/">
+    <meta property="og:image" content="https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/images/hero-electrician.jpg">
+    <meta property="og:locale" content="en_ZA">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="css/style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Electrician",
+        "name": "Sparky Electrical Services",
+        "url": "https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/",
+        "image": "https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/images/hero-electrician.jpg",
+        "telephone": "+27114035521",
+        "email": "braamfontein@sparkyelectrical.co.za",
+        "foundingDate": "2015",
+        "areaServed": "Johannesburg, South Africa",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "14 Jorissen Street",
+            "addressLocality": "Braamfontein",
+            "addressRegion": "Gauteng",
+            "postalCode": "2001",
+            "addressCountry": "ZA"
+        }
+    }
+    </script>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <header class="site-header">
         <!-- Site-wide header: logo + navigation menu -->
@@ -23,17 +61,18 @@
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <!-- Hero section: main banner introducing the organisation -->
         <section class="hero">
             <div class="hero-text">
                 <h1>Safe, Reliable Electrical Work You Can Trust</h1>
                 <p>Sparky Electrical Services has been keeping homes and small businesses across Johannesburg safely powered since 2015. From urgent repairs to full installations and Certificate of Compliance inspections, our qualified team gets the job done properly the first time.</p>
+                <p>Not sure what you need? Browse our <a class="text-link" href="services.html">electrical services and prices</a> or <a class="text-link" href="contact.html">find your nearest branch</a>.</p>
                 <a href="enquiry.html" class="btn btn-primary">Get a Free Quote</a>
             </div>
             <div class="hero-image">
                 <!-- Responsive image: browser picks the best-fit file for the screen size -->
-                <img src="images/hero-electrician.jpg"
+                <img src="images/hero-electrician.jpg" fetchpriority="high"
                      srcset="images/hero-electrician-small.jpg 600w, images/hero-electrician.jpg 1200w"
                      sizes="(max-width: 768px) 100vw, 50vw"
                      alt="Qualified electrician at work on a residential electrical installation">
@@ -58,14 +97,46 @@
                 </div>
             </div>
         </section>
+
+        <!-- FAQ accordion: answers open and close with JavaScript -->
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3><button type="button" class="accordion-trigger" id="faq1-btn" aria-expanded="false" aria-controls="faq1">Do you offer same-day electrician call-outs?</button></h3>
+                    <div class="accordion-panel" id="faq1" role="region" aria-labelledby="faq1-btn">
+                        <p>Yes. For urgent faults like a dead db board or a burning smell from a plug point, we do our best to get to you the same day. Tick the urgent box on our <a class="text-link" href="enquiry.html">quote form</a> and we will prioritise your job.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3><button type="button" class="accordion-trigger" id="faq2-btn" aria-expanded="false" aria-controls="faq2">What is a Certificate of Compliance (COC) and do I need one?</button></h3>
+                    <div class="accordion-panel" id="faq2" role="region" aria-labelledby="faq2-btn">
+                        <p>A COC is a document that proves your property's electrical installation is safe and meets South African regulations. You normally need one when you sell a property, and many insurers ask for one too. Read more on our <a class="text-link" href="services.html">services page</a>.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3><button type="button" class="accordion-trigger" id="faq3-btn" aria-expanded="false" aria-controls="faq3">Which areas do you cover?</button></h3>
+                    <div class="accordion-panel" id="faq3" role="region" aria-labelledby="faq3-btn">
+                        <p>We work across greater Johannesburg from two branches, one in Braamfontein and one in Randburg. See both on the map on our <a class="text-link" href="contact.html">contact page</a>.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3><button type="button" class="accordion-trigger" id="faq4-btn" aria-expanded="false" aria-controls="faq4">How much will my job cost?</button></h3>
+                    <div class="accordion-panel" id="faq4" role="region" aria-labelledby="faq4-btn">
+                        <p>It depends on the work. Our <a class="text-link" href="enquiry.html">enquiry form</a> gives you an instant price range, and an electrician then phones you to confirm the final amount before any work starts.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">
         <!-- Site-wide footer: repeats on every page -->
         <p>&copy; 2026 Sparky Electrical Services. All rights reserved.</p>
+        <p class="share-links" id="shareLinks"></p>
         <p>Student: Lesego Tlhako | Student Number: ST10511722</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>

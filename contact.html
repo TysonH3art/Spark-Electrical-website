@@ -3,10 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparky Electrical Services | Contact</title>
+    <title>Contact Us | Sparky Electrical Services Braamfontein and Randburg</title>
+    <meta name="description" content="Contact Sparky Electrical Services at our Braamfontein or Randburg branch. Find us on the map, phone us or send a message.">
+    <meta name="keywords" content="electrician Braamfontein, electrician Randburg, contact electrician Johannesburg, Sparky Electrical contact">
+    <meta name="author" content="Lesego Tlhako">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0A2647">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <link rel="canonical" href="https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/contact.html">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sparky Electrical Services">
+    <meta property="og:title" content="Contact Us | Sparky Electrical Services Braamfontein and Randburg">
+    <meta property="og:description" content="Contact Sparky Electrical Services at our Braamfontein or Randburg branch. Find us on the map, phone us or send a message.">
+    <meta property="og:url" content="https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/contact.html">
+    <meta property="og:image" content="https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/images/hero-electrician.jpg">
+    <meta property="og:locale" content="en_ZA">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <header class="site-header">
         <a href="index.html" class="logo-link">
@@ -22,52 +40,95 @@
         </nav>
     </header>
 
-    <main class="page-content">
+    <main id="main-content" class="page-content">
         <h1>Contact Us</h1>
+        <p class="intro">Visit one of our two Johannesburg branches, phone us, or send a message using the form below. Prefer a quote? Use our <a class="text-link" href="enquiry.html">enquiry form</a> instead.</p>
 
         <div class="locations-grid">
             <section class="location-card">
                 <h2>Braamfontein Office</h2>
                 <p>14 Jorissen Street</p>
                 <p>Braamfontein, Johannesburg, 2001</p>
-                <p>Phone: 011 403 5521</p>
-                <p>Email: braamfontein@sparkyelectrical.co.za</p>
+                <p>Phone: <a class="text-link" href="tel:+27114035521">011 403 5521</a></p>
+                <p>Email: <a class="text-link" href="mailto:braamfontein@sparkyelectrical.co.za">braamfontein@sparkyelectrical.co.za</a></p>
+                <button type="button" class="btn btn-secondary" data-flyto="braamfontein">Show on map</button>
             </section>
 
             <section class="location-card">
                 <h2>Randburg Branch</h2>
                 <p>58 Republic Road</p>
                 <p>Randburg, Johannesburg, 2194</p>
-                <p>Phone: 011 789 4432</p>
-                <p>Email: randburg@sparkyelectrical.co.za</p>
+                <p>Phone: <a class="text-link" href="tel:+27117894432">011 789 4432</a></p>
+                <p>Email: <a class="text-link" href="mailto:randburg@sparkyelectrical.co.za">randburg@sparkyelectrical.co.za</a></p>
+                <button type="button" class="btn btn-secondary" data-flyto="randburg">Show on map</button>
             </section>
         </div>
 
+        <!-- Interactive map (Leaflet + OpenStreetMap) -->
+        <section class="content-section">
+            <h2>Find Us on the Map</h2>
+            <div id="map" class="map" role="region" aria-label="Map showing the Braamfontein and Randburg branches"></div>
+            <button type="button" class="btn btn-secondary map-reset" data-showall>Show both branches</button>
+        </section>
+
         <section class="content-section narrow">
             <h2>Send Us a Message</h2>
-            <form action="#" method="post" class="site-form">
+            <form action="contact.html" method="get" class="site-form" id="contactForm">
                 <div class="form-group">
                     <label for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" required minlength="2" maxlength="60" autocomplete="name" placeholder="e.g. Thabo Mokoena">
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" required maxlength="100" autocomplete="email" placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number (optional):</label>
+                    <input type="tel" id="phone" name="phone" maxlength="16" autocomplete="tel" placeholder="082 123 4567">
+                </div>
+                <div class="form-group">
+                    <label for="message-type">Type of Message:</label>
+                    <select id="message-type" name="message-type" required>
+                        <option value="">Choose a message type...</option>
+                        <option value="General question">General question</option>
+                        <option value="Feedback">Feedback</option>
+                        <option value="Complaint">Complaint</option>
+                        <option value="Careers">Careers</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="branch">Which branch should receive it?</label>
+                    <select id="branch" name="branch" required>
+                        <option value="">Choose a branch...</option>
+                        <option value="braamfontein">Braamfontein Office</option>
+                        <option value="randburg">Randburg Branch</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="5"></textarea>
+                    <textarea id="message" name="message" rows="5" required minlength="10" maxlength="500"></textarea>
+                    <span class="char-count" aria-hidden="true"></span>
                 </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
+                <!-- Honeypot: hidden from people, bots fill it in -->
+                <div class="hp" aria-hidden="true">
+                    <label for="website">Leave this empty</label>
+                    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+                <p class="form-status" role="alert"></p>
+                <button type="submit" class="btn btn-primary">Prepare Email</button>
             </form>
+
+            <section class="result-panel" id="emailPreview" aria-live="polite" hidden></section>
         </section>
     </main>
 
     <footer class="site-footer">
         <p>&copy; 2026 Sparky Electrical Services. All rights reserved.</p>
+        <p class="share-links" id="shareLinks"></p>
         <p>Student: Lesego Tlhako | Student Number: ST10511722</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="vendor/leaflet/leaflet.js"></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>

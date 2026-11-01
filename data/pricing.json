@@ -1,0 +1,7 @@
+{
+  "installation": { "label": "New Installation", "from": 1200, "to": 8500, "availability": "within 3 working days" },
+  "repair": { "label": "Repair / Fault Finding", "from": 650, "to": 2500, "availability": "same day or next working day" },
+  "coc": { "label": "Certificate of Compliance (COC)", "from": 1450, "to": 2200, "availability": "within 5 working days" },
+  "other": { "label": "Other", "from": 650, "to": 3000, "availability": "within 3 working days, after we call you to confirm the details" },
+  "urgentSurcharge": 0.2
+}

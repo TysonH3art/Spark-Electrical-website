@@ -1,6 +1,7 @@
 /* ============================================
    SPARKY ELECTRICAL SERVICES - STYLESHEET
    Part 2: CSS Styling and Responsive Design
+   Part 3: styles for the new interactive features (see section 13)
    ============================================ */
 
 /* ---- 1. CSS RESET ---- */
@@ -314,6 +315,496 @@ p {
 }
 
 /* ============================================
+   13. PART 3 - INTERACTIVE FEATURES
+   ============================================ */
+
+/* ---- Accessibility helpers ---- */
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    background-color: var(--navy);
+    color: var(--text-light);
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    z-index: 3000;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+    outline: 3px solid var(--amber);
+    outline-offset: 2px;
+}
+
+.text-link {
+    color: var(--navy);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--amber);
+    text-underline-offset: 3px;
+}
+
+.text-link:hover {
+    color: #7a4f00;
+}
+
+.intro {
+    max-width: 700px;
+    margin-bottom: 1.5rem;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+/* ---- Secondary button ---- */
+.btn {
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--navy);
+    border-color: var(--navy);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+    background-color: var(--navy);
+    color: var(--text-light);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* ---- Scroll animations ---- */
+.js .reveal {
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.js .reveal:not(.visible) {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+/* ---- FAQ accordion ---- */
+.faq {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 5%;
+}
+
+.faq h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.faq-item {
+    background-color: var(--text-light);
+    border: 1px solid var(--border-colour);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+}
+
+.faq-item h3 {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.accordion-trigger {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 1rem 3rem 1rem 1.25rem;
+    font: inherit;
+    font-weight: 700;
+    color: var(--navy);
+    cursor: pointer;
+    position: relative;
+}
+
+.accordion-trigger::after {
+    content: '+';
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--amber);
+    transition: transform 0.25s ease;
+}
+
+.accordion-trigger[aria-expanded="true"]::after {
+    content: '\2212';
+}
+
+.accordion-trigger:hover {
+    background-color: var(--light-grey);
+}
+
+.accordion-panel {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1.25rem;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.accordion-panel.open {
+    max-height: 300px;
+    padding: 0 1.25rem 0.5rem;
+}
+
+/* ---- Services toolbar ---- */
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-end;
+    background-color: var(--text-light);
+    padding: 1.25rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    margin-bottom: 1rem;
+}
+
+.toolbar .form-group {
+    margin-bottom: 0;
+    flex: 1 1 180px;
+}
+
+.toolbar .btn {
+    padding: 0.65rem 1.25rem;
+}
+
+.service-count {
+    font-size: 0.9rem;
+    color: #555B66;
+    margin-bottom: 1rem;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 2rem 0;
+    font-weight: 600;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card .btn {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+.service-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 5 / 3;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--navy), #1a4a80);
+    font-size: 3.5rem;
+}
+
+.service-price {
+    font-weight: 700;
+    color: #7a4f00;
+}
+
+/* ---- Gallery + lightbox ---- */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.gallery-item {
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img,
+.gallery-item:focus-visible img {
+    transform: scale(1.08);
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(5, 15, 30, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: fade-in 0.2s ease;
+}
+
+.lightbox[hidden] {
+    display: none;
+}
+
+.lightbox-figure {
+    max-width: 85vw;
+    text-align: center;
+}
+
+.lightbox-figure img {
+    max-height: 78vh;
+    width: auto;
+    margin: 0 auto;
+    border-radius: 6px;
+}
+
+.lightbox-caption {
+    color: var(--text-light);
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.lightbox-btn {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--text-light);
+    border: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.lightbox-btn:hover,
+.lightbox-btn:focus-visible {
+    background: var(--amber);
+    color: var(--navy);
+}
+
+.lightbox-close {
+    top: 1rem;
+    right: 1rem;
+}
+
+.lightbox-prev {
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-next {
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ---- Map ---- */
+.map {
+    height: 380px;
+    border-radius: 8px;
+    border: 1px solid var(--border-colour);
+    background-color: #dfe3ea;
+    margin-bottom: 1rem;
+    z-index: 1;
+}
+
+.location-card .btn {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1.1rem;
+    font-size: 0.9rem;
+}
+
+/* ---- Form validation states ---- */
+.form-group input.invalid,
+.form-group select.invalid,
+.form-group textarea.invalid {
+    border-color: #C0392B;
+    background-color: #FDF3F2;
+}
+
+.form-group input.valid,
+.form-group select.valid,
+.form-group textarea.valid {
+    border-color: #2E8B57;
+}
+
+.field-error {
+    color: #B03A2E;
+    font-size: 0.85rem;
+    margin: 0.35rem 0 0;
+}
+
+.field-error:empty {
+    display: none;
+}
+
+.form-check {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.6rem;
+}
+
+.form-check input {
+    margin-top: 0.3rem;
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+.form-check label {
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+.char-count {
+    align-self: flex-end;
+    font-size: 0.8rem;
+    color: #555B66;
+    margin-top: 0.25rem;
+}
+
+.form-status {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.form-status:empty {
+    display: none;
+}
+
+.form-status.error {
+    color: #B03A2E;
+}
+
+.hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* ---- Quote result + email preview ---- */
+.result-panel {
+    margin-top: 2rem;
+    padding: 1.75rem;
+    background-color: var(--text-light);
+    border-radius: 8px;
+    border-left: 5px solid var(--amber);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    animation: slide-up 0.4s ease;
+}
+
+.result-panel[hidden] {
+    display: none;
+}
+
+.quote-price {
+    font-family: 'Montserrat', 'Open Sans', Arial, sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.quote-list {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.quote-note {
+    font-size: 0.9rem;
+    color: #555B66;
+    margin-bottom: 0;
+}
+
+.email-box {
+    background-color: var(--light-grey);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.25rem 1rem;
+}
+
+.email-box dt {
+    font-weight: 700;
+}
+
+.email-box dd {
+    overflow-wrap: anywhere;
+}
+
+.email-body {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-family: inherit;
+    background-color: var(--light-grey);
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+@keyframes slide-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Footer share links ---- */
+.share-links a {
+    color: var(--amber);
+    margin-left: 0.75rem;
+    text-decoration: underline;
+}
+
+.share-links a:hover {
+    color: var(--text-light);
+}
+
+/* ---- Respect visitors who turn animations off ---- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ============================================
    12. RESPONSIVE DESIGN - BREAKPOINTS
    Desktop: default styles above (1024px+)
    Tablet: max-width 1024px
@@ -386,4 +877,22 @@ p {
     .page-content {
         padding: 2rem 5%;
     }
+}
+
+@media (max-width: 600px) {
+    .toolbar .btn {
+        width: 100%;
+    }
+
+    .map {
+        height: 300px;
+    }
+
+    .lightbox-btn {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .lightbox-prev { left: 0.25rem; }
+    .lightbox-next { right: 0.25rem; }
 }
