@@ -84,7 +84,7 @@ These confirm the layout correctly adapts at each breakpoint: 3-column grids on 
 
 ## Part 3 Details
 
-**Live website:** https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/ (deployed with GitHub Pages)
+**Live website:** https://tysonh3art.github.io/Spark-Electrical-website/ (deployed with GitHub Pages)
 
 **Feedback from Part 2:** No written feedback or marks for Part 2 had been released when I started Part 3, so there were no lecturer comments to work through. While testing I found the images were far too heavy for a small business site (the largest was 8.6 MB), so I fixed that myself. It is logged in the Changelog.
 
